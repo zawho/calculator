@@ -1,1 +1,1 @@
-# calculator
+October 13, 2022 - I am now beginning the final project of The Odin Project's Foundations course. I will build a calculator app utilizing all of the JS, CSS, and HTML I have learned thus far. It may take some time but I am excited!
