@@ -1,4 +1,4 @@
-// Calculator mathematical functions.
+//Arithmetic functions.
 function add(a, b) {
     return a + b;
 }
