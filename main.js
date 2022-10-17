@@ -1,8 +1,6 @@
 //HTML.
 const displayInput = document.querySelector('.display-screen')
-const numButton1 = document.querySelector('.button-1');
-const numButton2 = document.querySelector('.button-2');
-const allButtons = document.querySelectorAll('.all-buttons');
+const allNum = document.querySelectorAll('.num');
 
 
 //Button function.
@@ -10,8 +8,10 @@ function displayButton() {
         displayInput.value += this.innerText;
 }
 
-numButton1.addEventListener('click', displayButton);
-numButton2.addEventListener('click', displayButton);
+//Number button event listener loop.
+for (let i = 0; i <= 9; i++) {
+   allNum[i].addEventListener('click', displayButton);
+}
 
 //Arithmetic functions.
 function add(a, b) {
