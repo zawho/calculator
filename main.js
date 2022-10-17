@@ -1,3 +1,6 @@
+//Global variables.
+let displayVal;
+
 //HTML.
 const displayInput = document.querySelector('.display-screen')
 const allNum = document.querySelectorAll('.num');
@@ -6,6 +9,7 @@ const allNum = document.querySelectorAll('.num');
 //Button function.
 function displayButton() {
         displayInput.value += this.innerText;
+        displayVal = displayInput.value;
 }
 
 //Number button event listener loop.
