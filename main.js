@@ -1,3 +1,18 @@
+//HTML.
+const displayInput = document.querySelector('.display-screen')
+const numButton1 = document.querySelector('.button-1');
+const numButton2 = document.querySelector('.button-2');
+const allButtons = document.querySelectorAll('.all-buttons');
+
+
+//Button function.
+function displayButton() {
+        displayInput.value += this.innerText;
+}
+
+numButton1.addEventListener('click', displayButton);
+numButton2.addEventListener('click', displayButton);
+
 //Arithmetic functions.
 function add(a, b) {
     return +a + +b;
