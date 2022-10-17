@@ -34,4 +34,4 @@ function operate() {
     console.log(`${calcString} = ${answerVar}`);
 }
 
-operate();
+//operate();
