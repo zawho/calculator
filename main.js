@@ -1,6 +1,7 @@
 //HTML.
 const displayInput = document.querySelector('.display-screen')
 const allNum = document.querySelectorAll('.num');
+const allOperators = document.querySelectorAll('.op');
 
 //Op object.
 const operation = {
@@ -11,14 +12,24 @@ const operation = {
 
 //Button functions.
 function numButton() {
-        displayInput.value += this.innerText;
-        operation.firstDisplayVal = displayInput.value;
-        console.log(operation.firstDisplayVal)
+    displayInput.value += this.innerText;
+    operation.firstDisplayVal = parseInt(displayInput.value);
 }
+
+function operationButtons() {
+    operation.operatorVar = this.innerText;
+    console.log(operation.operatorVar)
+}
+
 
 //Number button event listener loop.
 for (let i = 0; i <= 9; i++) {
    allNum[i].addEventListener('click', numButton);
+}
+
+//Operator button event listener loop.
+for (let i = 0; i <= 3; i++) {
+    allOperators[i].addEventListener('click', operationButtons);
 }
 
 //Arithmetic functions.
