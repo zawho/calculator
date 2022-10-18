@@ -1,24 +1,24 @@
 //HTML.
-const displayInput = document.querySelector('.display-screen')
+const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
 const allOperators = document.querySelectorAll('.op');
+const eqButton = document.querySelector('.equals');
 
 //Op object.
 const operation = {
-    firstDisplayVal: '',
+    userNumA: '',
     operatorVar: '',
-    secondDisplayVal: ''
+    userNumB: ''
 }
 
 //Button functions.
 function numButton() {
     if (operation.operatorVar === '') {
-        displayInput.value += this.innerText;
-        operation.firstDisplayVal += this.innerText;
+        operation.userNumA += this.innerText;
+        displayInput.value = operation.userNumA;
     } else {
-        displayInput.value = 0
-        displayInput.value += this.innerText;
-        operation.secondDisplayVal += this.innerText;
+        operation.userNumB += this.innerText;
+        displayInput.value = operation.userNumB;
     }
     console.log(operation);
 }
@@ -27,7 +27,6 @@ function operationButtons() {
     operation.operatorVar = this.innerText;
     console.log(operation);
 }
-
 
 //Number button event listener loop.
 for (let i = 0; i <= 9; i++) {
@@ -58,21 +57,18 @@ function divide(a, b) {
 
 //Take user inputs and apply the arithmetic functions.
 function operate() {
-    let userNumA = prompt('Choose a number');
-    let userNumB = prompt('Choose another number');
-    //let operatorVar = prompt ('Choose an operator');
     let answerVar;
-    let calcString = `${userNumA} ${operatorVar} ${userNumB}`;
-    if (operatorVar === '+') {
-        answerVar = add(userNumA, userNumB);
-    } else if (operatorVar === '-') {
-        answerVar = subtract(userNumA, userNumB);
-    } else if (operatorVar === '*') {
-        answerVar = multiply(userNumA, userNumB);
-    } else if (operatorVar === '/') {
-        answerVar = divide(userNumA, userNumB);
+    if (operation.operatorVar === '+') {
+        answerVar = add(operation.userNumA, operation.userNumB);
+    } else if (operation.operatorVar === '-') {
+        answerVar = subtract(operation.userNumA, operation.userNumB);
+    } else if (operation.operatorVar === 'x') {
+        answerVar = multiply(operation.userNumA, operation.userNumB);
+    } else if (operation.operatorVar === '/') {
+        answerVar = divide(operation.userNumA, operation.userNumB);
     }
-    console.log(`${calcString} = ${answerVar}`);
+    displayInput.value = answerVar;
+    console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${answerVar}`)
 }
 
-//operate();
+eqButton.addEventListener('click', operate);
