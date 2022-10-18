@@ -5,20 +5,27 @@ const allOperators = document.querySelectorAll('.op');
 
 //Op object.
 const operation = {
-    firstDisplayVal: 0,
+    firstDisplayVal: '',
     operatorVar: '',
-    secondDisplayVal: 0
+    secondDisplayVal: ''
 }
 
 //Button functions.
 function numButton() {
-    displayInput.value += this.innerText;
-    operation.firstDisplayVal = parseInt(displayInput.value);
+    if (operation.operatorVar === '') {
+        displayInput.value += this.innerText;
+        operation.firstDisplayVal += this.innerText;
+    } else {
+        displayInput.value = 0
+        displayInput.value += this.innerText;
+        operation.secondDisplayVal += this.innerText;
+    }
+    console.log(operation);
 }
 
 function operationButtons() {
     operation.operatorVar = this.innerText;
-    console.log(operation.operatorVar)
+    console.log(operation);
 }
 
 
