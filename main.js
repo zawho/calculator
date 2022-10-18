@@ -6,15 +6,15 @@ const displayInput = document.querySelector('.display-screen')
 const allNum = document.querySelectorAll('.num');
 
 
-//Button function.
-function displayButton() {
+//Button functions.
+function numButton() {
         displayInput.value += this.innerText;
         displayVal = displayInput.value;
 }
 
 //Number button event listener loop.
 for (let i = 0; i <= 9; i++) {
-   allNum[i].addEventListener('click', displayButton);
+   allNum[i].addEventListener('click', numButton);
 }
 
 //Arithmetic functions.
