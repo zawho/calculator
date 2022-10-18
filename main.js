@@ -1,15 +1,19 @@
-//Global variables.
-let displayVal;
-
 //HTML.
 const displayInput = document.querySelector('.display-screen')
 const allNum = document.querySelectorAll('.num');
 
+//Op object.
+const operation = {
+    firstDisplayVal: 0,
+    operatorVar: '',
+    secondDisplayVal: 0
+}
 
 //Button functions.
 function numButton() {
         displayInput.value += this.innerText;
-        displayVal = displayInput.value;
+        operation.firstDisplayVal = displayInput.value;
+        console.log(operation.firstDisplayVal)
 }
 
 //Number button event listener loop.
@@ -38,7 +42,7 @@ function divide(a, b) {
 function operate() {
     let userNumA = prompt('Choose a number');
     let userNumB = prompt('Choose another number');
-    let operatorVar = prompt ('Choose an operator');
+    //let operatorVar = prompt ('Choose an operator');
     let answerVar;
     let calcString = `${userNumA} ${operatorVar} ${userNumB}`;
     if (operatorVar === '+') {
