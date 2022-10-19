@@ -21,6 +21,12 @@ function numButton() {
         operation.userNumB += this.innerText;
         displayInput.value = operation.userNumB;
     }
+    if (!(operation.answerVar === '')) {
+        operation.userNumA = operation.answerVar;
+        operation.userNumB = '';
+        operation.userNumB += this.innerText;
+        displayInput.value = operation.userNumB;
+    }
     console.log(operation);
 }
 
@@ -68,6 +74,7 @@ function operate() {
         operation.answerVar = divide(operation.userNumA, operation.userNumB);
     }
     displayInput.value = operation.answerVar;
+    console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
 
