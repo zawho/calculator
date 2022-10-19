@@ -21,17 +21,15 @@ function numButton() {
         operation.userNumB += this.innerText;
         displayInput.value = operation.userNumB;
     }
-    if (!(operation.answerVar === '')) {
-        operation.userNumA = operation.answerVar;
-        operation.userNumB = '';
-        operation.userNumB += this.innerText;
-        displayInput.value = operation.userNumB;
-    }
     console.log(operation);
 }
 
 function operationButtons() {
     operation.operatorVar = this.innerText;
+    if (!(operation.answerVar === '')) {
+        operation.userNumA = operation.answerVar;
+        operation.userNumB = '';
+    }
     console.log(operation);
 }
 
