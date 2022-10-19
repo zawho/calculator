@@ -3,8 +3,9 @@ const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
 const allOperators = document.querySelectorAll('.op');
 const eqButton = document.querySelector('.equals');
+const clearButton = document.querySelector('.clear');
 
-//Op object.
+//Operation object.
 const operation = {
     userNumA: '',
     operatorVar: '',
@@ -33,12 +34,23 @@ function operationButtons() {
     console.log(operation);
 }
 
-//Number button event listener loop.
+function clearAll() {
+    operation.userNumA = '';
+    operation.operatorVar = '';
+    operation.userNumB = '';
+    operation.answerVar = '';
+    displayInput.value = '';
+    console.log(operation);
+}
+
+//Clear button event listener.
+clearButton.addEventListener('click', clearAll);
+
+//Event listener loops.
 for (let i = 0; i <= 9; i++) {
    allNum[i].addEventListener('click', numButton);
 }
 
-//Operator button event listener loop.
 for (let i = 0; i <= 3; i++) {
     allOperators[i].addEventListener('click', operationButtons);
 }
