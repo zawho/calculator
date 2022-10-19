@@ -26,7 +26,14 @@ function numButton() {
 }
 
 function operationButtons() {
-    operation.operatorVar = this.innerText;
+    if (operation.userNumA === '') {
+        operation.operatorVar = '';
+    } else if (!(operation.userNumA === '') && !(operation.operatorVar === '') && !(operation.userNumB === '')) {
+        operate();
+        operation.operatorVar = this.innerText;
+    } else {
+        operation.operatorVar = this.innerText;
+    }
     if (!(operation.answerVar === '')) {
         operation.userNumA = operation.answerVar;
         operation.userNumB = '';
@@ -84,7 +91,7 @@ function operate() {
         operation.answerVar = divide(operation.userNumA, operation.userNumB);
     }
     displayInput.value = operation.answerVar;
-    console.log(operation);
+    //console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
 
