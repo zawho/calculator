@@ -90,7 +90,11 @@ function operate() {
     } else if (operation.operatorVar === '/') {
         operation.answerVar = divide(operation.userNumA, operation.userNumB);
     }
-    displayInput.value = operation.answerVar;
+    if (operation.answerVar % 1 != 0) {
+        displayInput.value = operation.answerVar.toFixed(12);
+    } else {
+        displayInput.value = operation.answerVar;
+    }
     //console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
