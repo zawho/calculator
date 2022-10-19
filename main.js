@@ -8,7 +8,8 @@ const eqButton = document.querySelector('.equals');
 const operation = {
     userNumA: '',
     operatorVar: '',
-    userNumB: ''
+    userNumB: '',
+    answerVar: ''
 }
 
 //Button functions.
@@ -57,18 +58,17 @@ function divide(a, b) {
 
 //Take user inputs and apply the arithmetic functions.
 function operate() {
-    let answerVar;
     if (operation.operatorVar === '+') {
-        answerVar = add(operation.userNumA, operation.userNumB);
+        operation.answerVar = add(operation.userNumA, operation.userNumB);
     } else if (operation.operatorVar === '-') {
-        answerVar = subtract(operation.userNumA, operation.userNumB);
+        operation.answerVar = subtract(operation.userNumA, operation.userNumB);
     } else if (operation.operatorVar === 'x') {
-        answerVar = multiply(operation.userNumA, operation.userNumB);
+        operation.answerVar = multiply(operation.userNumA, operation.userNumB);
     } else if (operation.operatorVar === '/') {
-        answerVar = divide(operation.userNumA, operation.userNumB);
+        operation.answerVar = divide(operation.userNumA, operation.userNumB);
     }
-    displayInput.value = answerVar;
-    console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${answerVar}`)
+    displayInput.value = operation.answerVar;
+    console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
 
 eqButton.addEventListener('click', operate);
