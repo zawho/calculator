@@ -118,7 +118,8 @@ function operate() {
             minimumFractionDigits: 1,
             maximumFractionDigits: 8,
         })
-        displayInput.value = decimalForm.format(operation.answerVar);
+        operation.answerVar = decimalForm.format(operation.answerVar);
+        displayInput.value = operation.answerVar;
     } else {
         displayInput.value = operation.answerVar;
     }
