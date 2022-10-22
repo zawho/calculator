@@ -29,7 +29,7 @@ const operation = {
 
 //Button functions.
 function displayNum() {
-    if (operation.operatorVar === '' || (!(operation.operatorVar === '') && !(operation.userNumB === '') && operation.userNumA === '')) {
+    if (operation.operatorVar === '' || (!(operation.operatorVar === '') && operation.userNumA === '')) {
         operation.userNumA += this.innerText;
         displayInput.value = operation.userNumA;
         operation. operatorVar = '';
@@ -80,15 +80,17 @@ function getOperator() {
 }
 
 function deleteDisplay() {
-    if (operation.operatorVar === '') {
-        operation.userNumA = operation.userNumA.slice(0, displayInput.value.length - 1);
+    //Fix bug that deletes userNumA after userNumB is deleted.
+    if (operation.operatorVar === '' || (!(operation.userNumA === '') && !(operation.operatorVar === '') && operation.userNumB === '')) {
+        operation.userNumA = operation.userNumA.toString().slice(0, displayInput.value.length - 1);
         displayInput.value = operation.userNumA;
+        operation.operatorVar = '';
     } else if (!(operation.answerVar === '')) {
         operation.answerVar = operation.answerVar.toString().slice(0, displayInput.value.length - 1);
         displayInput.value = operation.answerVar;
         operation.userNumA = '';
     } else if (!(operation.userNumB === '') && !(operation.userNumA === '')) {
-        operation.userNumB = operation.userNumB.slice(0, displayInput.value.length - 1);
+        operation.userNumB = operation.userNumB.toString().slice(0, displayInput.value.length - 1);
         displayInput.value = operation.userNumB;
     }
     console.log(operation);
