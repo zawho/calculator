@@ -4,6 +4,7 @@ const allNum = document.querySelectorAll('.num');
 const decimalButton = document.querySelector('.decimal')
 const allOperators = document.querySelectorAll('.op');
 const eqButton = document.querySelector('.equals');
+const backspaceButton = document.querySelector('.backspace');
 const clearButton = document.querySelector('.clear');
 
 //Operation object.
