@@ -15,7 +15,7 @@ const operation = {
 }
 
 //Button functions.
-function numButton() {
+function displayNum() {
     if (operation.operatorVar === '') {
         operation.userNumA += this.innerText;
         displayInput.value = operation.userNumA;
@@ -26,7 +26,7 @@ function numButton() {
     console.log(operation);
 }
 
-function operationButtons() {
+function getOperator() {
     if (operation.userNumA === '') {
         operation.operatorVar = '';
     } else if (!(operation.userNumA === '') && !(operation.operatorVar === '') && !(operation.userNumB === '')) {
@@ -56,11 +56,11 @@ clearButton.addEventListener('click', clearAll);
 
 //Event listener loops.
 for (let i = 0; i <= 9; i++) {
-   allNum[i].addEventListener('click', numButton);
+   allNum[i].addEventListener('click', displayNum);
 }
 
 for (let i = 0; i <= 3; i++) {
-    allOperators[i].addEventListener('click', operationButtons);
+    allOperators[i].addEventListener('click', getOperator);
 }
 
 //Arithmetic functions.
