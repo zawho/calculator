@@ -1,6 +1,7 @@
 //HTML.
 const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
+const decimalButton = document.querySelector('.decimal')
 const allOperators = document.querySelectorAll('.op');
 const eqButton = document.querySelector('.equals');
 const clearButton = document.querySelector('.clear');

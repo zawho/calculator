@@ -11,7 +11,7 @@ button {
 }
 
 .calc-container {
-    width: 140px;
+    width: 155px;
     display: flex;
     flex-direction: column;
 }
