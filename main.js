@@ -1,4 +1,3 @@
-//HTML.
 const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
 const decimalButton = document.querySelector('.decimal')
@@ -6,6 +5,18 @@ const allOperators = document.querySelectorAll('.op');
 const eqButton = document.querySelector('.equals');
 const backspaceButton = document.querySelector('.backspace');
 const clearButton = document.querySelector('.clear');
+
+for (let i = 0; i <= 9; i++) {
+    allNum[i].addEventListener('click', displayNum);
+ }
+ 
+ for (let i = 0; i <= 3; i++) {
+     allOperators[i].addEventListener('click', getOperator);
+ }
+
+decimalButton.addEventListener('click', displayFraction);
+eqButton.addEventListener('click', operate);
+clearButton.addEventListener('click', clearAll);
 
 //Operation object.
 const operation = {
@@ -48,8 +59,6 @@ function displayFraction() {
     console.log(operation);
 }
 
-decimalButton.addEventListener('click', displayFraction);
-
 function getOperator() {
     if (operation.userNumA === '') {
         operation.operatorVar = '';
@@ -74,18 +83,6 @@ function clearAll() {
     operation.answerVar = '';
     displayInput.value = '';
     console.log(operation);
-}
-
-//Clear button event listener.
-clearButton.addEventListener('click', clearAll);
-
-//Event listener loops.
-for (let i = 0; i <= 9; i++) {
-   allNum[i].addEventListener('click', displayNum);
-}
-
-for (let i = 0; i <= 3; i++) {
-    allOperators[i].addEventListener('click', getOperator);
 }
 
 //Arithmetic functions.
@@ -136,5 +133,3 @@ function operate() {
     console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
-
-eqButton.addEventListener('click', operate);
