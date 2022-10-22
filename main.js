@@ -19,6 +19,10 @@ function displayNum() {
     if (operation.operatorVar === '') {
         operation.userNumA += this.innerText;
         displayInput.value = operation.userNumA;
+    } else if (!(operation.answerVar === '')) {
+        operation.answerVar += this.innerText;
+        displayInput.value = operation.answerVar;
+        operation.userNumB = '';
     } else {
         operation.userNumB += this.innerText;
         displayInput.value = operation.userNumB;
@@ -30,12 +34,15 @@ function displayFraction() {
     if (operation.operatorVar === '' && !(displayInput.value.includes('.'))) {
         operation.userNumA += this.innerText;
         displayInput.value = operation.userNumA;
-    } else if (!(operation.operatorVar === '') && displayInput.value.includes('.') && operation.userNumB === '') {
+    } else if (!(operation.operatorVar === '') && displayInput.value.includes('.') && operation.userNumB === '' && operation.answerVar === '') {
         operation.userNumB += this.innerText;
         displayInput.value = operation.userNumB;
-    } else if (!(operation.operatorVar === '') && !(displayInput.value.includes('.'))) {
+    } else if (!(operation.operatorVar === '') && !(displayInput.value.includes('.')) && operation.answerVar === '') {
         operation.userNumB += this.innerText;
         displayInput.value = operation.userNumB;
+    } else if (!(operation.answerVar === '') && !(displayInput.value.includes('.'))) {
+        operation.answerVar += this.innerText;
+        displayInput.value = operation.answerVar;
     }
     console.log(operation);
 }
@@ -54,6 +61,7 @@ function getOperator() {
     if (!(operation.answerVar === '')) {
         operation.userNumA = operation.answerVar;
         operation.userNumB = '';
+        operation.answerVar = '';
     }
     console.log(operation);
 }
@@ -124,7 +132,7 @@ function operate() {
         clearAll();
         displayInput.value = 'Whoa careful now!';
     }
-    //console.log(operation);
+    console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
 
