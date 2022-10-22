@@ -26,6 +26,22 @@ function displayNum() {
     console.log(operation);
 }
 
+function displayFraction() {
+    if (operation.operatorVar === '' && !(displayInput.value.includes('.'))) {
+        operation.userNumA += this.innerText;
+        displayInput.value = operation.userNumA;
+    } else if (!(operation.operatorVar === '') && displayInput.value.includes('.') && operation.userNumB === '') {
+        operation.userNumB += this.innerText;
+        displayInput.value = operation.userNumB;
+    } else if (!(operation.operatorVar === '') && !(displayInput.value.includes('.'))) {
+        operation.userNumB += this.innerText;
+        displayInput.value = operation.userNumB;
+    }
+    console.log(operation);
+}
+
+decimalButton.addEventListener('click', displayFraction);
+
 function getOperator() {
     if (operation.userNumA === '') {
         operation.operatorVar = '';
