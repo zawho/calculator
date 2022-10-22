@@ -99,6 +99,10 @@ function operate() {
         operation.answerVar = '';
         displayInput.value = operation.userNumA;
     }
+    if (operation.operatorVar === '/' && operation.userNumB === '0') {
+        clearAll();
+        displayInput.value = 'Whoa careful now!';
+    }
     //console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
