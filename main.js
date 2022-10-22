@@ -95,6 +95,10 @@ function operate() {
     } else {
         displayInput.value = operation.answerVar;
     }
+    if (operation.userNumB === '') {
+        operation.answerVar = '';
+        displayInput.value = operation.userNumA;
+    }
     //console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
