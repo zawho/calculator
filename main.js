@@ -91,7 +91,11 @@ function operate() {
         operation.answerVar = divide(operation.userNumA, operation.userNumB);
     }
     if (operation.answerVar % 1 != 0) {
-        displayInput.value = operation.answerVar.toFixed(12);
+        const decimalForm = new Intl.NumberFormat('en-US', {
+            minimumFractionDigits: 1,
+            maximumFractionDigits: 8,
+        })
+        displayInput.value = decimalForm.format(operation.answerVar);
     } else {
         displayInput.value = operation.answerVar;
     }
