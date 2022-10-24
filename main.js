@@ -26,6 +26,8 @@ document.addEventListener('keydown', getNumKey);
 document.addEventListener('keydown', getOpKey);
 document.addEventListener('keydown', getDecimalKey);
 document.addEventListener('keydown', getEqKey);
+document.addEventListener('keydown', getDeleteKey);
+document.addEventListener('keydown', getClearKey);
 
 //Operation object.
 const operation = {
@@ -62,6 +64,18 @@ function getOpKey(e) {
 function getEqKey(e) {
     if (e.key === '=') {
         operate();
+    }
+}
+
+function getDeleteKey(e) {
+    if (e.key === 'Backspace'){
+        deleteDisplay();
+    }
+}
+
+function getClearKey(e) {
+    if (e.key === 'c') {
+        clearAll();
     }
 }
 
