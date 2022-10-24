@@ -25,6 +25,7 @@ clearButton.addEventListener('click', clearAll);
 document.addEventListener('keydown', getNumKey);
 document.addEventListener('keydown', getOpKey);
 document.addEventListener('keydown', getDecimalKey);
+document.addEventListener('keydown', getEqKey);
 
 //Operation object.
 const operation = {
@@ -55,6 +56,12 @@ function getOpKey(e) {
         opVar = e.key;
         getOperator();
         opVar = '';
+    }
+}
+
+function getEqKey(e) {
+    if (e.key === '=') {
+        operate();
     }
 }
 
