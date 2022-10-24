@@ -99,7 +99,7 @@ function getOperator() {
     if (opVar === '') {
         opVar = this.innerText;
     }
-    if (operation.userNumA === '') {
+    if (operation.userNumA === '' && operation.answerVar === '') {
         operation.operatorVar = '';
     } else if (!(operation.userNumA === '') && !(operation.operatorVar === '') && !(operation.userNumB === '')) {
         operate();
