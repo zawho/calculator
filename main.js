@@ -1,5 +1,6 @@
 let numVar = '';
 let opVar = '';
+let decimalVar = '.';
 
 const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
@@ -23,6 +24,7 @@ backspaceButton.addEventListener('click', deleteDisplay);
 clearButton.addEventListener('click', clearAll);
 document.addEventListener('keydown', getNumKey);
 document.addEventListener('keydown', getOpKey);
+document.addEventListener('keydown', getDecimalKey);
 
 //Operation object.
 const operation = {
@@ -38,6 +40,13 @@ function getNumKey(e) {
         numVar = e.key;
         displayNum();
         numVar = '';
+    }
+}
+
+function getDecimalKey(e) {
+    if (e.key === '.') {
+        decimalVar = e.key;
+        displayFraction();
     }
 }
 
@@ -75,16 +84,16 @@ function displayNum() {
 
 function displayFraction() {
     if (operation.operatorVar === '' && !(displayInput.value.includes('.'))) {
-        operation.userNumA += this.innerText;
+        operation.userNumA += decimalVar;
         displayInput.value = operation.userNumA;
     } else if (!(operation.operatorVar === '') && displayInput.value.includes('.') && operation.userNumB === '' && operation.answerVar === '') {
-        operation.userNumB += this.innerText;
+        operation.userNumB += decimalVar;
         displayInput.value = operation.userNumB;
     } else if (!(operation.operatorVar === '') && !(displayInput.value.includes('.')) && operation.answerVar === '') {
-        operation.userNumB += this.innerText;
+        operation.userNumB += decimalVar;
         displayInput.value = operation.userNumB;
     } else if (!(operation.answerVar === '') && !(displayInput.value.includes('.'))) {
-        operation.answerVar += this.innerText;
+        operation.answerVar += decimalVar;
         displayInput.value = operation.answerVar;
     }
     console.log(operation);
