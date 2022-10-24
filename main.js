@@ -1,3 +1,5 @@
+let numVar = '';
+
 const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
 const decimalButton = document.querySelector('.decimal')
@@ -18,6 +20,7 @@ decimalButton.addEventListener('click', displayFraction);
 eqButton.addEventListener('click', operate);
 backspaceButton.addEventListener('click', deleteDisplay);
 clearButton.addEventListener('click', clearAll);
+document.addEventListener('keydown', getNumKey);
 
 //Operation object.
 const operation = {
@@ -27,20 +30,35 @@ const operation = {
     answerVar: ''
 }
 
+//Keyboard functions.
+function getNumKey(e) {
+    if (e.key >= '0' && e.key <= '9') {
+        numVar = e.key;
+        displayNum();
+        numVar = '';
+    }
+}
+
 //Button functions.
-function displayNum() {
+function displayNum(e) {
+    if (numVar === '') {
+        numVar = this.innerText;
+    }
     if (operation.operatorVar === '' || (!(operation.operatorVar === '') && operation.userNumA === '')) {
-        operation.userNumA += this.innerText;
+        operation.userNumA += numVar;
         displayInput.value = operation.userNumA;
         operation. operatorVar = '';
         operation.userNumB = '';
+        numVar = '';
     } else if (!(operation.answerVar === '')) {
-        operation.answerVar += this.innerText;
+        operation.answerVar += numVar;
         displayInput.value = operation.answerVar;
         operation.userNumB = '';
+        numVar = '';
     } else if (!(operation.userNumA === '')) {
-        operation.userNumB += this.innerText;
+        operation.userNumB += numVar;
         displayInput.value = operation.userNumB;
+        numVar = '';
     }
     console.log(operation);
 }
