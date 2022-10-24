@@ -1,4 +1,5 @@
 let numVar = '';
+let opVar = '';
 
 const displayInput = document.querySelector('.display-screen');
 const allNum = document.querySelectorAll('.num');
@@ -21,6 +22,7 @@ eqButton.addEventListener('click', operate);
 backspaceButton.addEventListener('click', deleteDisplay);
 clearButton.addEventListener('click', clearAll);
 document.addEventListener('keydown', getNumKey);
+document.addEventListener('keydown', getOpKey);
 
 //Operation object.
 const operation = {
@@ -39,8 +41,16 @@ function getNumKey(e) {
     }
 }
 
+function getOpKey(e) {
+    if (e.key === '+' || e.key === '-' || e.key === 'x' || e.key === '*' || e.key === '/') {
+        opVar = e.key;
+        getOperator();
+        opVar = '';
+    }
+}
+
 //Button functions.
-function displayNum(e) {
+function displayNum() {
     if (numVar === '') {
         numVar = this.innerText;
     }
@@ -81,19 +91,23 @@ function displayFraction() {
 }
 
 function getOperator() {
+    if (opVar === '') {
+        opVar = this.innerText;
+    }
     if (operation.userNumA === '') {
         operation.operatorVar = '';
     } else if (!(operation.userNumA === '') && !(operation.operatorVar === '') && !(operation.userNumB === '')) {
         operate();
-        operation.operatorVar = this.innerText;
+        operation.operatorVar = opVar;
     } else {
-        operation.operatorVar = this.innerText;
+        operation.operatorVar = opVar;
     }
     if (!(operation.answerVar === '')) {
         operation.userNumA = operation.answerVar;
         operation.userNumB = '';
         operation.answerVar = '';
     }
+    opVar = '';
     console.log(operation);
 }
 
@@ -145,7 +159,7 @@ function operate() {
         operation.answerVar = add(operation.userNumA, operation.userNumB);
     } else if (operation.operatorVar === '-') {
         operation.answerVar = subtract(operation.userNumA, operation.userNumB);
-    } else if (operation.operatorVar === 'x') {
+    } else if (operation.operatorVar === 'x' || operation.operatorVar === '*') {
         operation.answerVar = multiply(operation.userNumA, operation.userNumB);
     } else if (operation.operatorVar === '/') {
         operation.answerVar = divide(operation.userNumA, operation.userNumB);
