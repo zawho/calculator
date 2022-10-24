@@ -80,8 +80,7 @@ function getOperator() {
 }
 
 function deleteDisplay() {
-    //Fix bug that deletes userNumA after userNumB is deleted.
-    if (operation.operatorVar === '' || (!(operation.userNumA === '') && !(operation.operatorVar === '') && operation.userNumB === '')) {
+    if (operation.operatorVar === '') {
         operation.userNumA = operation.userNumA.toString().slice(0, displayInput.value.length - 1);
         displayInput.value = operation.userNumA;
         operation.operatorVar = '';
