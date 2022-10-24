@@ -22,12 +22,7 @@ decimalButton.addEventListener('click', displayFraction);
 eqButton.addEventListener('click', operate);
 backspaceButton.addEventListener('click', deleteDisplay);
 clearButton.addEventListener('click', clearAll);
-document.addEventListener('keydown', getNumKey);
-document.addEventListener('keydown', getOpKey);
-document.addEventListener('keydown', getDecimalKey);
-document.addEventListener('keydown', getEqKey);
-document.addEventListener('keydown', getDeleteKey);
-document.addEventListener('keydown', getClearKey);
+document.addEventListener('keydown', getKeys);
 
 //Operation object.
 const operation = {
@@ -37,44 +32,24 @@ const operation = {
     answerVar: ''
 }
 
-//Keyboard functions.
-function getNumKey(e) {
+//Keyboard function.
+function getKeys(e) {
     if (e.key >= '0' && e.key <= '9') {
         numVar = e.key;
         displayNum();
         numVar = '';
-    }
-}
-
-function getDecimalKey(e) {
-    if (e.key === '.') {
+    } else if (e.key === '.') {
         decimalVar = e.key;
         displayFraction();
-    }
-}
-
-function getOpKey(e) {
-    if (e.key === '+' || e.key === '-' || e.key === 'x' || e.key === '*' || e.key === '/') {
+    } else if (e.key === '+' || e.key === '-' || e.key === 'x' || e.key === '*' || e.key === '/') {
         opVar = e.key;
         getOperator();
         opVar = '';
-    }
-}
-
-function getEqKey(e) {
-    if (e.key === '=') {
+    } else if (e.key === '=') {
         operate();
-    }
-}
-
-function getDeleteKey(e) {
-    if (e.key === 'Backspace'){
+    } else if (e.key === 'Backspace'){
         deleteDisplay();
-    }
-}
-
-function getClearKey(e) {
-    if (e.key === 'c') {
+    } else if (e.key === 'c') {
         clearAll();
     }
 }
