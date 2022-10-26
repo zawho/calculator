@@ -75,7 +75,6 @@ function displayNum() {
         displayInput.value = operation.userNumB;
         numVar = '';
     }
-    console.log(operation);
 }
 
 function displayFraction() {
@@ -92,7 +91,6 @@ function displayFraction() {
         operation.answerVar += decimalVar;
         displayInput.value = operation.answerVar;
     }
-    console.log(operation);
 }
 
 function getOperator() {
@@ -119,7 +117,6 @@ function getOperator() {
         displayInput.value += operation.operatorVar;
     }
     opVar = '';
-    console.log(operation);
 }
 
 function deleteDisplay() {
@@ -135,7 +132,6 @@ function deleteDisplay() {
         operation.userNumB = operation.userNumB.toString().slice(0, displayInput.value.length - 1);
         displayInput.value = operation.userNumB;
     }
-    console.log(operation);
 }
 
 function clearAll() {
@@ -144,7 +140,6 @@ function clearAll() {
     operation.userNumB = '';
     operation.answerVar = '';
     displayInput.value = '';
-    console.log(operation);
 }
 
 //Arithmetic functions.
@@ -193,6 +188,4 @@ function operate() {
         clearAll();
         displayInput.value = 'oh no!';
     }
-    console.log(operation);
-    console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
 }
