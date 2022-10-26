@@ -112,6 +112,12 @@ function getOperator() {
         operation.userNumB = '';
         operation.answerVar = '';
     }
+    if (operation.operatorVar === '') {
+        displayInput.value += operation.operatorVar;
+    } else {
+        displayInput.value = operation.userNumA;
+        displayInput.value += operation.operatorVar;
+    }
     opVar = '';
     console.log(operation);
 }
