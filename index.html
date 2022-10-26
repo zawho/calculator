@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dosis&display=swap" rel="stylesheet">
     <script src="main.js" defer></script>
     <title>calculator</title>
 </head>
 <body>
     <div class="calc-container">
-        <input type="text" class="display-screen" disabled>
+        <input type="text" dir="rtl" class="display-screen" disabled>
         <div class="all-buttons">
             <button type="button" class="num">1</button>
             <button type="button" class="num">2</button>
@@ -21,13 +24,15 @@
             <button type="button" class="num">9</button>
             <button type="button" class="num">0</button>
             <button type="button" class="decimal">.</button>
+            <button type="button" class="backspace">←</button>
             <button type="button" class="op">+</button>
             <button type="button" class="op">-</button>
             <button type="button" class="op">x</button>
             <button type="button" class="op">/</button>
-            <button type="button" class="equals">=</button>
-            <button type="button" class="backspace">←</button>
-            <button type="button" class="clear">c</button>
+            <div class="equals-and-clear">
+                <button type="button" class="equals">=</button>
+                <button type="button" class="clear">c</button>
+            </div>
         </div>
     </div>
 </body>
