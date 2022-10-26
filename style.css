@@ -30,6 +30,7 @@ button:focus {
     height: 75px;
     border: none;
     border-radius: 15px;
+    text-align: right;
 }
 
 .num {
