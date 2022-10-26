@@ -16,6 +16,7 @@ for (let i = 0; i <= 9; i++) {
  
  for (let i = 0; i <= 3; i++) {
      allOperators[i].addEventListener('click', getOperator);
+     allOperators[i].addEventListener('click', showOperator)
  }
 
 decimalButton.addEventListener('click', displayFraction);
@@ -114,6 +115,12 @@ function getOperator() {
     }
     opVar = '';
     console.log(operation);
+}
+
+function showOperator() {
+    if (operation.operatorVar === this.innerText) {
+        this.style.backgroundColor = 'white';
+    }
 }
 
 function deleteDisplay() {
