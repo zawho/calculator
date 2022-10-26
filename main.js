@@ -14,9 +14,9 @@ for (let i = 0; i <= 9; i++) {
     allNum[i].addEventListener('click', displayNum);
  }
  
- for (let i = 0; i <= 3; i++) {
+for (let i = 0; i <= 3; i++) {
      allOperators[i].addEventListener('click', getOperator);
-     allOperators[i].addEventListener('click', showOperator)
+     allOperators[i].addEventListener('click', switchOpColor);
  }
 
 decimalButton.addEventListener('click', displayFraction);
@@ -117,8 +117,8 @@ function getOperator() {
     console.log(operation);
 }
 
-function showOperator() {
-    if (operation.operatorVar === this.innerText) {
+function switchOpColor() {
+    if (operation.operatorVar === this.innerText && operation.userNumB === '') {
         this.style.backgroundColor = 'white';
     }
 }
@@ -192,7 +192,7 @@ function operate() {
     }
     if (operation.operatorVar === '/' && operation.userNumB === '0') {
         clearAll();
-        displayInput.value = 'Whoa careful now!';
+        displayInput.value = 'oh no!';
     }
     console.log(operation);
     console.log(`${operation.userNumA} ${operation.operatorVar} ${operation.userNumB} = ${operation.answerVar}`)
