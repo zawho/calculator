@@ -180,7 +180,7 @@ function operate() {
             minimumFractionDigits: 1,
             maximumFractionDigits: 8,
         })
-        operation.answerVar = decimalForm.format(operation.answerVar);
+        operation.answerVar = decimalForm.format(operation.answerVar).replaceAll(',', '');
         displayInput.value = operation.answerVar;
     } else {
         displayInput.value = operation.answerVar;
